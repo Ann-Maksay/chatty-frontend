@@ -36,9 +36,9 @@ my-vite-app/
 ├── node_modules/
 ├── public/
 ├── src/
-│		├── assets/
-│		│		└── main.css (global styling)
-│		│		└── img/
+│   ├── assets/
+│   │   └── main.css
+│   │   └── img/
 │   ├── store/
 │   │   └── store.ts
 │   │   └── %store_name%/
