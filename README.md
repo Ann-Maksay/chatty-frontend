@@ -23,7 +23,7 @@ npm install
 
 ### 3. Update .env
 
-Don't forget to add the necessary data to your .env file. for example, use .env.example
+Don't forget to add the necessary data to your `.env` file. for example, use `.env.example`
 
 ### 4. Start the Development Server
 
