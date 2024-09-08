@@ -9,6 +9,11 @@
     rgba(1, 223, 233, 0.8) 0%,
     rgba(0, 78, 82, 0.8) 100%
   );
+  --disabled-button-gradient: radial-gradient(
+    66.86% 66.86% at 50% 50%,
+    rgba(158, 161, 161, 0.56) 0%,
+    #fcfdfd 100%
+  );
 
   --welcome-button-gradient: radial-gradient(
     66.86% 66.86% at 50% 50%,
@@ -23,11 +28,6 @@
 
   --welcome-button-border: rgba(11, 66, 69, 0.85);
   --light-button-border: #f5ffff;
-  --disabled-button-gradient: radial-gradient(
-    66.86% 66.86% at 50% 50%,
-    rgba(158, 161, 161, 0.56) 0%,
-    #fcfdfd 100%
-  );
 
   --main-white-color: #fff;
   --secondary-white-color: rgba(255, 255, 255, 0.7);

@@ -14,7 +14,6 @@ export const StyledButton = styled.button<ButtonProps>`
 
   transition:
     border var(--default-transition-timer) ease,
-    background-color var(--default-transition-timer) ease;
 
   ${({ $style }) =>
     $style === "welcome" &&
