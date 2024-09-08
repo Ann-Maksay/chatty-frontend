@@ -1,0 +1,36 @@
+:root {
+  --main-light-bg: #f5ffff;
+
+  --main-green-gradient: linear-gradient(180deg, #01dfe9 0%, #004e52 100%);
+  --secondary-green-gradient: linear-gradient(0deg, #01787e 0%, #151e1f 100%);
+
+  --main-button-ative-gradient: linear-gradient(
+    180deg,
+    rgba(1, 223, 233, 0.8) 0%,
+    rgba(0, 78, 82, 0.8) 100%
+  );
+
+  --welcome-button-gradient: radial-gradient(
+    66.86% 66.86% at 50% 50%,
+    rgba(26, 255, 255, 0.25) 0%,
+    #f5ffff 100%
+  );
+  --welcome-button-active-gradient: radial-gradient(
+    66.86% 66.86% at 50% 50%,
+    rgba(26, 255, 255, 0.18) 0%,
+    rgba(245, 255, 255, 0.72) 100%
+  );
+
+  --welcome-button-border: rgba(11, 66, 69, 0.85);
+  --light-button-border: #f5ffff;
+  --disabled-button-gradient: radial-gradient(
+    66.86% 66.86% at 50% 50%,
+    rgba(158, 161, 161, 0.56) 0%,
+    #fcfdfd 100%
+  );
+
+  --main-white-color: #fff;
+  --secondary-white-color: rgba(255, 255, 255, 0.7);
+
+  --default-transition-timer: 1s;
+}
