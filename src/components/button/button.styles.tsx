@@ -12,8 +12,7 @@ export const StyledButton = styled.button<ButtonProps>`
   font-family: inherit;
   text-transform: uppercase;
 
-  transition:
-    border var(--default-transition-timer) ease,
+  transition: border var(--default-transition-timer) ease;
 
   ${({ $style }) =>
     $style === "welcome" &&
@@ -37,14 +36,14 @@ export const StyledButton = styled.button<ButtonProps>`
 
       font-size: 20px;
       font-weight: 700;
-      color: var(--main-light-bg);
+      color: var(--main-light-color);
     `}
   
   &:hover {
     ${({ $style }) =>
       $style === "welcome" &&
       css`
-        border: 4px solid var(--light-button-border);
+        border: 4px solid var(--main-light-color);
       `}
 
     ${({ $style }) =>

@@ -17,5 +17,5 @@ body {
 }
 
 .testContainer--white {
-  background: var(--main-light-bg);
+  background: var(--main-light-color);
 }
