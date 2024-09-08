@@ -28,7 +28,7 @@ function App() {
 
       {/* all this data is only for testing purposes and may be deleted or commented on as needed */}
 
-      <div>
+      {/* <div>
         <h1>API Data:</h1>
         <pre>{JSON.stringify(data, null, 2)}</pre>
       </div>
@@ -38,7 +38,7 @@ function App() {
       </div>
       <div className="testContainer">
         <Button label="Sign in" style="welcome" />
-      </div>
+      </div> */}
     </>
   );
 }
