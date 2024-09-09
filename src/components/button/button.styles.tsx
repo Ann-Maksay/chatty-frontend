@@ -12,7 +12,9 @@ export const StyledButton = styled.button<ButtonProps>`
   font-family: inherit;
   text-transform: uppercase;
 
-  transition: border var(--default-transition-timer) ease;
+  transition:
+    border var(--default-transition-timer) ease,
+    box-shadow var(--default-transition-timer) ease;
 
   ${({ $style }) =>
     $style === "welcome" &&
@@ -49,7 +51,7 @@ export const StyledButton = styled.button<ButtonProps>`
     ${({ $style }) =>
       $style === "primary" &&
       css`
-        background: var(--main-button-ative-gradient);
+        box-shadow: inset 0 0 0 1px var(--main-light-color);
       `}
   }
 
