@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { Button, Input } from "~/components/components";
+import { Welcome } from "~/pages/pages";
 
 import "~/assets/css/main.css";
 
@@ -32,7 +33,6 @@ function App() {
 
   return (
     <>
-      <h1>Chatty</h1>
       {/* all this data is only for testing purposes and may be deleted or commented on as needed */}
 
       {/* api test */}
@@ -50,8 +50,7 @@ function App() {
       </div> */}
 
       {/* inputs test */}
-
-      <form className="testContainer testContainer--white">
+      {/* <form className="testContainer testContainer--white">
         <Input
           control={control}
           label="Test Input"
@@ -59,7 +58,10 @@ function App() {
           name="value"
           placeholder="Nickname"
         />
-      </form>
+      </form> */}
+
+      {/* welcome test */}
+      {/* <Welcome /> */}
     </>
   );
 }
