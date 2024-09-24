@@ -8,9 +8,9 @@ export const StyledWelcome = styled.div`
 
   width: 100%;
   min-height: 100vh;
-  padding: 50px 0 10px;
+  padding: 216px 0 100px;
 
-  background: var(--secondary-green-gradient);
+  background: var(--auth-green-gradient);
 `;
 
 export const StyledLogo = styled.img`

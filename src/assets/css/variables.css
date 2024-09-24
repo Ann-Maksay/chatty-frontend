@@ -19,6 +19,11 @@
     var(--main-dark-green-color) 0%,
     var(--secondary-dark-green-color) 100%
   );
+  --auth-green-gradient: linear-gradient(
+    0deg,
+    rgba(1, 120, 126, 0.8) 0.06%,
+    rgba(21, 30, 31, 0.8) 83.71%
+  );
 
   --main-button-ative-gradient: linear-gradient(
     180deg,
