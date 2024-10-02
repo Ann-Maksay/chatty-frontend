@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { Button, Input } from "~/components/components";
-import { Welcome } from "~/pages/pages";
+import { Auth, Welcome } from "~/pages/pages";
 
 import "~/assets/css/main.css";
 
@@ -62,6 +62,9 @@ function App() {
 
       {/* welcome test */}
       {/* <Welcome /> */}
+
+      {/* auth test */}
+      <Auth />
     </>
   );
 }

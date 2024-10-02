@@ -5,7 +5,7 @@ import passwordIcon from "~/assets/images/icons/password.svg";
 import userIcon from "~/assets/images/icons/user.svg";
 import { type IconName } from "~/types/icon-name.type";
 
-interface LabelProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface LabelProps {
   $icon: IconName;
   $style: "primary";
 }
@@ -53,12 +53,14 @@ export const StyledWrapper = styled.label<LabelProps>`
 
 export const StyledInput = styled.input`
   position: relative;
+
+  width: 436px;
   padding: 14px 20px 14px 56px;
 
   font-size: 22px;
 
   background-color: var(--main-white-color);
-  border-radius: 20px;
+  border-radius: 24px;
   box-shadow: 0px 0px 2px #013538;
 
   &::placeholder {

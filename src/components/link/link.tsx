@@ -1,19 +1,20 @@
-import { type AppRoute } from "~/enums/enums";
-import { type ValueOf } from '~/types/types';
+import { StyledLink } from "./link.style";
 
+import { type AppRoute } from "~/enums/enums";
+import { type ValueOf } from "~/types/types";
 
 type Properties = {
-	href?: ValueOf<typeof AppRoute>;
+  href?: ValueOf<typeof AppRoute>;
   label: string;
-}
+  style?: string;
+};
 
-// TODO: upgrade links when routing is ready
+const Link: React.FC<Properties> = ({ href, label, style }: Properties) => {
+  return (
+    <StyledLink href={href} $style={style}>
+      {label}
+    </StyledLink>
+  );
+};
 
-const Link: React.FC<Properties> = ({
-  href,
-  label,
-}: Properties) => {
-  return <a href={ href }>{label}</a>
-}
-
-export { Link }
+export { Link };
