@@ -1,4 +1,8 @@
-import { type UserPasswordRecoveryReqDto, type UserSignInReqDto, type UserSignUpReqDto } from '~/types/types';
+import {
+  type UserPasswordRecoveryReqDto,
+  type UserSignInReqDto,
+  type UserSignUpReqDto,
+} from "~/types/types";
 
 const DEFAULT_SIGN_IN_PAYLOAD: UserSignInReqDto = {
   email: "",
@@ -7,6 +11,7 @@ const DEFAULT_SIGN_IN_PAYLOAD: UserSignInReqDto = {
 
 const DEFAULT_SIGN_UP_PAYLOAD: UserSignUpReqDto = {
   email: "",
+  isFullYearOld: false,
   password: "",
   username: "",
 };

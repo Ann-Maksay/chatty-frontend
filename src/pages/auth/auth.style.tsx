@@ -1,6 +1,10 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import authBG from "~/assets/images/auth-dg.png";
+
+interface ContainerProps {
+  $style?: "sign-in" | "sign-up" | "password-recovery";
+}
 
 export const StyledAuth = styled.div`
   display: flex;
@@ -15,12 +19,29 @@ export const StyledAuth = styled.div`
   background: var(--auth-green-gradient);
 `;
 
-export const StyledContainer = styled.div`
+export const StyledContainer = styled.div<ContainerProps>`
   position: relative;
 
   width: 900px;
   height: 668px;
-  padding: 192px 115px 74px;
+
+  ${({ $style }) =>
+    $style === "sign-in" &&
+    css`
+      padding: 192px 115px 74px;
+    `}
+
+  ${({ $style }) =>
+    $style === "sign-up" &&
+    css`
+      padding: 152px 115px 74px;
+    `}
+
+      ${({ $style }) =>
+    $style === "password-recovery" &&
+    css`
+      padding: 224px 115px 145px;
+    `}
 
   background: url(${authBG});
   background-size: contain;
@@ -63,11 +84,17 @@ export const StyledSubContent = styled.div`
   padding: 20px 0 35px 132px;
 `;
 
-export const StyledButtonContainer = styled.div`
+export const StyledButtonContainer = styled.div<ContainerProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
+
+  ${({ $style }) =>
+    $style === "password-recovery" &&
+    css`
+      margin: 40px 0 28px;
+    `}
 `;
 
 export const StyledLink = styled.p`

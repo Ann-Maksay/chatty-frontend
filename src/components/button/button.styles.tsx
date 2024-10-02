@@ -84,6 +84,12 @@ export const StyledButton = styled.button<ButtonProps>`
 
   &:disabled {
     cursor: not-allowed;
+    color: rgba(245, 255, 255, 0.7);
+    background: linear-gradient(
+      180deg,
+      rgba(253, 253, 253, 0.79) 0%,
+      rgba(143, 170, 171, 0.8) 100%
+    );
   }
 `;
 

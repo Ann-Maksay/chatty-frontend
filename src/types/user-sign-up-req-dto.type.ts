@@ -1,5 +1,6 @@
 export type UserSignUpReqDto = {
-  username: string,
-  email: string,
-  password: string,
-}
+  username: string;
+  isFullYearOld?: boolean;
+  email: string;
+  password: string;
+};

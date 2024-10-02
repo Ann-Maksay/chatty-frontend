@@ -11,17 +11,18 @@ import {
   StyledContainer,
   StyledLogo,
 } from "../../auth.style";
-import { DEFAULT_SIGN_IN_PAYLOAD } from "../../constants/constants";
+import { DEFAULT_SIGN_UP_PAYLOAD } from "../../constants/constants";
 
 import logo from "~/assets/images/logo/logo-small.svg";
-import { Button, Input, Link } from "~/components/components";
+import { Button, Input, Link, Checkbox } from "~/components/components";
 import { AppRoute } from "~/enums/app-route.enum";
 
-const SignIn: React.FC = () => {
+const SignUp: React.FC = () => {
   const [isPasswordVisible, setPasswordVisibility] = useState<boolean>(false);
+  const [isFullYear, setIsFullYear] = useState<boolean>(false);
 
   const { control, handleSubmit } = useForm({
-    defaultValues: DEFAULT_SIGN_IN_PAYLOAD,
+    defaultValues: DEFAULT_SIGN_UP_PAYLOAD,
   });
 
   const handleFormSubmit = handleSubmit((data) => {
@@ -34,11 +35,20 @@ const SignIn: React.FC = () => {
 
   return (
     <div>
-      <StyledContainer $style="sign-in">
+      <StyledContainer $style="sign-up">
         <StyledLogo src={logo} alt="Chatty logo" />
-        <StyledTitle>Sign in</StyledTitle>
+        <StyledTitle>Sign Up</StyledTitle>
 
         <StyledForm onSubmit={handleFormSubmit}>
+          <Input
+            control={control}
+            icon="user"
+            label="Username"
+            name="username"
+            placeholder="Nickname"
+            type="text"
+          />
+
           <Input
             control={control}
             icon="mail"
@@ -68,21 +78,27 @@ const SignIn: React.FC = () => {
           </StyledInputContainer>
 
           <StyledSubContent>
-            <Link
-              href={AppRoute.PASSWORD_RECOVERY}
-              label="Forgot Password?"
-              style="big-auth"
+            <Checkbox
+              control={control}
+              label="Has gone past the age of 18"
+              name="isFullYearOld"
+              onChange={(e) => setIsFullYear(e.target.checked)}
             />
           </StyledSubContent>
 
           <StyledButtonContainer>
-            <Button label="Sing In" type="submit" style="primary" />
+            <Button
+              label="Sing Up"
+              type="submit"
+              style="primary"
+              disabled={!isFullYear}
+            />
 
             <StyledLink>
-              Don`t have an account?{" "}
+              Already have an account?{" "}
               <Link
-                href={AppRoute.SIGN_UP}
-                label="Sign up"
+                href={AppRoute.SIGN_IN}
+                label="Sign in"
                 style="small-auth"
               />
             </StyledLink>
@@ -93,4 +109,4 @@ const SignIn: React.FC = () => {
   );
 };
 
-export { SignIn };
+export { SignUp };

@@ -64,8 +64,7 @@ function App() {
       {/* <Welcome /> */}
 
       {/* auth test */}
-
-      {/* <Auth /> */}
+      <Auth />
     </>
   );
 }
