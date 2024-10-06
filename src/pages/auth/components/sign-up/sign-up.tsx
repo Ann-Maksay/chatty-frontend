@@ -1,3 +1,4 @@
+import { yupResolver } from "@hookform/resolvers/yup";
 import { useState, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
@@ -13,6 +14,7 @@ import {
   StyledLogo,
 } from "../../auth.style";
 import { DEFAULT_SIGN_UP_PAYLOAD } from "../../constants/constants";
+import { signUpSchema } from "../../validation-shemas/validation-shemas";
 
 import logo from "~/assets/images/logo/logo-small.svg";
 import { Button, Input, Link, Checkbox } from "~/components/components";
@@ -31,8 +33,13 @@ const SignUp: React.FC<Props> = ({ onSubmit }) => {
     (state: RootState) => state.auth.isUserLoading
   );
 
-  const { control, handleSubmit } = useForm({
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     defaultValues: DEFAULT_SIGN_UP_PAYLOAD,
+    resolver: yupResolver(signUpSchema),
   });
 
   const handleFormSubmit = useCallback(
@@ -56,10 +63,11 @@ const SignUp: React.FC<Props> = ({ onSubmit }) => {
           <Input
             control={control}
             icon="user"
-            label="Username"
+            label="Nickname"
             name="nickname"
             placeholder="Nickname"
             type="text"
+            error={errors.nickname?.message}
           />
 
           <Input
@@ -69,6 +77,7 @@ const SignUp: React.FC<Props> = ({ onSubmit }) => {
             name="email"
             placeholder="E-mail"
             type="email"
+            error={errors.email?.message}
           />
 
           <StyledInputContainer>
@@ -79,6 +88,7 @@ const SignUp: React.FC<Props> = ({ onSubmit }) => {
               name="password"
               placeholder="Password"
               type={isPasswordVisible ? "text" : "password"}
+              error={errors.password?.message}
             />
 
             <Button

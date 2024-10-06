@@ -8,11 +8,22 @@ import { type IconName } from "~/types/icon-name.type";
 interface LabelProps {
   $icon: IconName;
   $style: "primary";
+  $hasError: boolean;
+}
+
+interface InputProps {
+  $hasError: boolean;
 }
 
 export const StyledWrapper = styled.label<LabelProps>`
   position: relative;
   display: inline-block;
+
+  ${({ $hasError }) =>
+    $hasError === true &&
+    css`
+      margin-top: 13px;
+    `}
 
   &::before {
     content: "";
@@ -51,9 +62,7 @@ export const StyledWrapper = styled.label<LabelProps>`
   }
 `;
 
-export const StyledInput = styled.input`
-  position: relative;
-
+export const StyledInput = styled.input<InputProps>`
   width: 436px;
   padding: 14px 20px 14px 56px;
 
@@ -69,7 +78,19 @@ export const StyledInput = styled.input`
 
   &:focus {
     box-shadow: 0px 0px 3px #013538;
+
+    ${({ $hasError }) =>
+      $hasError === true &&
+      css`
+        box-shadow: inset 0px 0px 2px 1px rgba(240, 24, 24, 1);
+      `}
   }
+
+  ${({ $hasError }) =>
+    $hasError === true &&
+    css`
+      box-shadow: inset 0px 0px 2px 1px rgba(240, 24, 24, 1);
+    `}
 `;
 
 //Must be visually hidden but required for accessibility
@@ -84,4 +105,12 @@ export const StyledLabel = styled.span`
   clip-path: inset(100%);
   white-space: nowrap;
   border: 0;
+`;
+
+export const StyledError = styled.p`
+  position: absolute;
+  top: -30px;
+  left: 20px;
+  font-size: 12px;
+  color: red;
 `;
