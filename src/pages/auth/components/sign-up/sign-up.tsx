@@ -1,5 +1,6 @@
 import { useState, useCallback } from "react";
 import { useForm } from "react-hook-form";
+import { useSelector } from "react-redux";
 
 import {
   StyledInputContainer,
@@ -16,18 +17,30 @@ import { DEFAULT_SIGN_UP_PAYLOAD } from "../../constants/constants";
 import logo from "~/assets/images/logo/logo-small.svg";
 import { Button, Input, Link, Checkbox } from "~/components/components";
 import { AppRoute } from "~/enums/app-route.enum";
+import { RootState } from "~/store/store";
+import { UserSignUpReqDto } from "~/types/types";
 
-const SignUp: React.FC = () => {
+type Props = {
+  onSubmit: (payload: UserSignUpReqDto) => void;
+};
+
+const SignUp: React.FC<Props> = ({ onSubmit }) => {
   const [isPasswordVisible, setPasswordVisibility] = useState<boolean>(false);
   const [isFullYear, setIsFullYear] = useState<boolean>(false);
+  const isUserLoading = useSelector(
+    (state: RootState) => state.auth.isUserLoading
+  );
 
   const { control, handleSubmit } = useForm({
     defaultValues: DEFAULT_SIGN_UP_PAYLOAD,
   });
 
-  const handleFormSubmit = handleSubmit((data) => {
-    console.log(data);
-  });
+  const handleFormSubmit = useCallback(
+    (event_: React.BaseSyntheticEvent): void => {
+      void handleSubmit(onSubmit)(event_);
+    },
+    [handleSubmit, onSubmit]
+  );
 
   const handleChangePasswordVisibility = useCallback(() => {
     setPasswordVisibility(!isPasswordVisible);
@@ -44,7 +57,7 @@ const SignUp: React.FC = () => {
             control={control}
             icon="user"
             label="Username"
-            name="username"
+            name="nickname"
             placeholder="Nickname"
             type="text"
           />
@@ -91,7 +104,7 @@ const SignUp: React.FC = () => {
               label="Sing Up"
               type="submit"
               style="primary"
-              disabled={!isFullYear}
+              disabled={!isFullYear || isUserLoading}
             />
 
             <StyledLink>

@@ -12,8 +12,8 @@ const DEFAULT_SIGN_IN_PAYLOAD: UserSignInReqDto = {
 const DEFAULT_SIGN_UP_PAYLOAD: UserSignUpReqDto = {
   email: "",
   isFullYearOld: false,
+  nickname: "",
   password: "",
-  username: "",
 };
 
 const DEFAULT_PASSWORD_RECOVERY_PAYLOAD: UserPasswordRecoveryReqDto = {
