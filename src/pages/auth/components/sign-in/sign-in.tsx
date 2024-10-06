@@ -1,5 +1,6 @@
 import { useState, useCallback } from "react";
 import { useForm } from "react-hook-form";
+import { useSelector } from "react-redux";
 
 import {
   StyledInputContainer,
@@ -16,17 +17,29 @@ import { DEFAULT_SIGN_IN_PAYLOAD } from "../../constants/constants";
 import logo from "~/assets/images/logo/logo-small.svg";
 import { Button, Input, Link } from "~/components/components";
 import { AppRoute } from "~/enums/app-route.enum";
+import { RootState } from "~/store/store";
+import { UserSignInReqDto } from "~/types/types";
 
-const SignIn: React.FC = () => {
+type Props = {
+  onSubmit: (payload: UserSignInReqDto) => void;
+};
+
+const SignIn: React.FC<Props> = ({ onSubmit }) => {
   const [isPasswordVisible, setPasswordVisibility] = useState<boolean>(false);
+  const isUserLoading = useSelector(
+    (state: RootState) => state.auth.isUserLoading
+  );
 
   const { control, handleSubmit } = useForm({
     defaultValues: DEFAULT_SIGN_IN_PAYLOAD,
   });
 
-  const handleFormSubmit = handleSubmit((data) => {
-    console.log(data);
-  });
+  const handleFormSubmit = useCallback(
+    (event_: React.BaseSyntheticEvent): void => {
+      void handleSubmit(onSubmit)(event_);
+    },
+    [handleSubmit, onSubmit]
+  );
 
   const handleChangePasswordVisibility = useCallback(() => {
     setPasswordVisibility(!isPasswordVisible);
@@ -76,7 +89,12 @@ const SignIn: React.FC = () => {
           </StyledSubContent>
 
           <StyledButtonContainer>
-            <Button label="Sing In" type="submit" style="primary" />
+            <Button
+              label="Sing In"
+              type="submit"
+              style="primary"
+              disabled={isUserLoading}
+            />
 
             <StyledLink>
               Don`t have an account?{" "}
