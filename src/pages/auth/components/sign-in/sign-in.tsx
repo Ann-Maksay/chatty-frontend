@@ -12,6 +12,7 @@ import {
   StyledSubContent,
   StyledContainer,
   StyledLogo,
+  StledError,
 } from "../../auth.style";
 import { DEFAULT_SIGN_IN_PAYLOAD } from "../../constants/constants";
 import { signInSchema } from "../../validation-shemas/validation-shemas";
@@ -31,6 +32,7 @@ const SignIn: React.FC<Props> = ({ onSubmit }) => {
   const isUserLoading = useSelector(
     (state: RootState) => state.auth.isUserLoading
   );
+  const error = useSelector((state: RootState) => state.auth.errorMessage);
 
   const {
     control,
@@ -98,6 +100,7 @@ const SignIn: React.FC<Props> = ({ onSubmit }) => {
           </StyledSubContent>
 
           <StyledButtonContainer>
+            {error && <StledError $style="sign-in">{error}</StledError>}
             <Button
               label="Sing In"
               type="submit"

@@ -5,12 +5,14 @@ import { signIn, signUp } from "./auth.actions";
 import { type UserInfo } from "~/types/user-info.type";
 
 type AuthState = {
+  errorMessage: string | null;
   user: UserInfo;
   token: string | null;
   isUserLoading: boolean;
 };
 
 const initialState: AuthState = {
+  errorMessage: null,
   isUserLoading: false,
   token: null,
   user: {
@@ -26,6 +28,9 @@ const authSlice = createSlice({
     logout: (state) => {
       state.user = null;
       state.token = null;
+    },
+    setErrorMessage(state, action) {
+      state.errorMessage = action.payload;
     },
   },
   // eslint-disable-next-line sort-keys
@@ -53,4 +58,5 @@ const authSlice = createSlice({
   },
 });
 
+export const { setErrorMessage } = authSlice.actions;
 export default authSlice.reducer;
