@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 
 import {
@@ -10,14 +10,20 @@ import {
   StyledLogo,
 } from "../../auth.style";
 import { DEFAULT_PASSWORD_RECOVERY_PAYLOAD } from "../../constants/constants";
+import { passwordRecoverySchema } from "../../validation-shemas/validation-shemas";
 
 import logo from "~/assets/images/logo/logo-small.svg";
 import { Button, Input, Link } from "~/components/components";
 import { AppRoute } from "~/enums/app-route.enum";
 
 const PasswordRecovery: React.FC = () => {
-  const { control, handleSubmit } = useForm({
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     defaultValues: DEFAULT_PASSWORD_RECOVERY_PAYLOAD,
+    resolver: yupResolver(passwordRecoverySchema),
   });
 
   const handleFormSubmit = handleSubmit((data) => {
@@ -38,6 +44,7 @@ const PasswordRecovery: React.FC = () => {
             name="email"
             placeholder="E-mail"
             type="email"
+            error={errors.email?.message}
           />
 
           <StyledButtonContainer $style="password-recovery">

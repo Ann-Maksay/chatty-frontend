@@ -41,10 +41,9 @@ export const StyledButton = styled.button<ButtonProps>`
     $style === "icon-auth" &&
     css`
       position: absolute;
-      top: 50%;
+      bottom: 16px;
       right: 16px;
       z-index: 1;
-      transform: translateY(-50%);
 
       width: 24px;
       height: 24px;

@@ -5,12 +5,18 @@ import {
   useController,
 } from "react-hook-form";
 
-import { StyledInput, StyledLabel, StyledWrapper } from "./input.styles";
+import {
+  StyledInput,
+  StyledLabel,
+  StyledWrapper,
+  StyledError,
+} from "./input.styles";
 
 import { type IconName } from "~/types/icon-name.type";
 
 type Properties<T extends FieldValues> = {
   control: Control<T, null>;
+  error?: string;
   isRequired?: boolean;
   icon?: IconName;
   inputMode?: "email" | "text";
@@ -23,6 +29,7 @@ type Properties<T extends FieldValues> = {
 
 const Input = <T extends FieldValues>({
   control,
+  error,
   isRequired = false,
   icon = "none",
   inputMode = "text",
@@ -35,7 +42,7 @@ const Input = <T extends FieldValues>({
   const { field } = useController({ control, name });
 
   return (
-    <StyledWrapper $icon={icon} $style={style}>
+    <StyledWrapper $icon={icon} $style={style} $hasError={!!error}>
       <StyledLabel>{label}</StyledLabel>
       <StyledInput
         placeholder={placeholder}
@@ -43,7 +50,9 @@ const Input = <T extends FieldValues>({
         inputMode={inputMode}
         type={type}
         {...field}
+        $hasError={!!error}
       />
+      {error && <StyledError>{error}</StyledError>}
     </StyledWrapper>
   );
 };
