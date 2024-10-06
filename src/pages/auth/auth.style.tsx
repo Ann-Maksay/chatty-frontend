@@ -6,6 +6,10 @@ interface ContainerProps {
   $style?: "sign-in" | "sign-up" | "password-recovery";
 }
 
+interface ErrorProps {
+  $style?: "sign-in" | "sign-up" | "password-recovery";
+}
+
 export const StyledAuth = styled.div`
   display: flex;
   flex-direction: column;
@@ -101,4 +105,29 @@ export const StyledLink = styled.p`
   margin: 0;
   font-size: 12px;
   font-weight: 500;
+`;
+
+export const StledError = styled.span<ErrorProps>`
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  margin: 0;
+  display: inline-block;
+  white-space: nowrap;
+
+  font-size: 12px;
+  color: red;
+
+  ${({ $style }) =>
+    $style === "sign-up" &&
+    css`
+      bottom: 160px;
+    `}
+
+  ${({ $style }) =>
+    $style === "sign-in" &&
+    css`
+      bottom: 185px;
+    `}
 `;

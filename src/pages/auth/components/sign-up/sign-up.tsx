@@ -12,6 +12,7 @@ import {
   StyledSubContent,
   StyledContainer,
   StyledLogo,
+  StledError,
 } from "../../auth.style";
 import { DEFAULT_SIGN_UP_PAYLOAD } from "../../constants/constants";
 import { signUpSchema } from "../../validation-shemas/validation-shemas";
@@ -32,6 +33,7 @@ const SignUp: React.FC<Props> = ({ onSubmit }) => {
   const isUserLoading = useSelector(
     (state: RootState) => state.auth.isUserLoading
   );
+  const error = useSelector((state: RootState) => state.auth.errorMessage);
 
   const {
     control,
@@ -110,6 +112,7 @@ const SignUp: React.FC<Props> = ({ onSubmit }) => {
           </StyledSubContent>
 
           <StyledButtonContainer>
+            {error && <StledError $style="sign-up">{error}</StledError>}
             <Button
               label="Sing Up"
               type="submit"
