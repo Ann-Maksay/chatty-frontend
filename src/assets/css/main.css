@@ -1,0 +1,21 @@
+@import "./fonts.css";
+@import "./variables.css";
+@import "./reset-normalize.css";
+
+body {
+  font-family: "Lexend", sans-serif;
+}
+
+.testContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  height: 300px;
+
+  background: var(--main-green-gradient);
+}
+
+.testContainer--white {
+  background: var(--main-light-color);
+}

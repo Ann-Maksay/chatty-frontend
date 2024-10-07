@@ -1,0 +1,53 @@
+:root {
+  --main-light-color: #f5ffff;
+  --main-white-color: #fff;
+  --secondary-white-color: rgba(255, 255, 255, 0.7);
+
+  --main-light-green-color: #01dfe9;
+  --secondary-light-green-color: #004e52;
+
+  --main-dark-green-color: #01787e;
+  --secondary-dark-green-color: #151e1f;
+
+  --main-green-gradient: linear-gradient(
+    180deg,
+    var(--main-light-green-color) 0%,
+    var(--secondary-light-green-color) 100%
+  );
+  --secondary-green-gradient: linear-gradient(
+    0deg,
+    var(--main-dark-green-color) 0%,
+    var(--secondary-dark-green-color) 100%
+  );
+  --auth-green-gradient: linear-gradient(
+    0deg,
+    rgba(1, 120, 126, 0.8) 0.06%,
+    rgba(21, 30, 31, 0.8) 83.71%
+  );
+
+  --main-button-ative-gradient: linear-gradient(
+    180deg,
+    rgba(1, 223, 233, 0.8) 0%,
+    rgba(0, 78, 82, 0.8) 100%
+  );
+  --disabled-button-gradient: radial-gradient(
+    66.86% 66.86% at 50% 50%,
+    rgba(158, 161, 161, 0.56) 0%,
+    #fcfdfd 100%
+  );
+
+  --welcome-button-gradient: radial-gradient(
+    66.86% 66.86% at 50% 50%,
+    rgba(26, 255, 255, 0.25) 0%,
+    #f5ffff 100%
+  );
+  --welcome-button-active-gradient: radial-gradient(
+    66.86% 66.86% at 50% 50%,
+    rgba(26, 255, 255, 0.18) 0%,
+    rgba(245, 255, 255, 0.72) 100%
+  );
+
+  --welcome-button-border: rgba(11, 66, 69, 0.85);
+
+  --default-transition-timer: 1s;
+}
